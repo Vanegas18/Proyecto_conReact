@@ -22,7 +22,7 @@ export const Header = () => {
           </div>
           <div className="right animate__animated animate__bounceInRight">
             <img
-              src="https://www.brilladeefigas.com/donde-financiar/imagenes/2927_construcion.png"
+              src="/images/construction.png"
               alt="Imagen de productos"
             />
           </div>

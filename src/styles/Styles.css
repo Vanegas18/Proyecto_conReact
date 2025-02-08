@@ -222,10 +222,8 @@ h2.separator {
 
 .nft-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .nft-lists {
@@ -250,8 +248,8 @@ h2.separator {
 
 .nft-shop .nft-list {
   padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 

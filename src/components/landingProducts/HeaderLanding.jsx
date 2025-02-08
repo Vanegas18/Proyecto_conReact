@@ -15,13 +15,9 @@ export const HeaderLanding = () => {
           </p>
         </div>
         <div className="right animate__animated animate__bounceInRight">
-          <img
-            src="https://www.brilladeefigas.com/donde-financiar/imagenes/2927_construcion.png"
-            alt="Imagen de productos"
-          />
+          <img src="/images/construction.png" alt="Imagen de productos" />
         </div>
       </header>
-      <Nav />
     </>
   );
 };

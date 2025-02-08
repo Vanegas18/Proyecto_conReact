@@ -1,10 +1,10 @@
-import { Footer, HeaderLanding, ListProducts } from "../index";
+import { Footer, HeaderLanding, ListProducts, MainLanding } from "../index";
 
 export const LandingProducts = () => {
   return (
     <>
       <HeaderLanding />
-      <ListProducts />
+      <MainLanding />
       <Footer />
     </>
   );
