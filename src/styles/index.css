@@ -130,10 +130,7 @@ body {
 
 aside {
   grid-area: sidebar;
-  background-color: var(--color-background);
-  flex: 0 0 250px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 5px;
   border-radius: 20px;
 }
 
@@ -179,7 +176,7 @@ aside .sidebar a {
   display: flex;
   align-items: center;
   color: var(--color-info-dark);
-  height: 3.7rem;
+  height: 3.2rem;
   gap: 1rem;
   position: relative;
   margin-left: 1rem;
@@ -192,12 +189,9 @@ aside .sidebar a span {
 }
 
 aside .sidebar a:first-child {
+  margin-top: 10px;
   bottom: -0.5rem;
 }
-
-/* aside .sidebar a:nth-child(2){
-  margin-top: 25px;
-} */
 
 aside .sidebar a:last-child {
   position: absolute;
@@ -266,6 +260,7 @@ aside .sidebar a:hover span {
 }
 
 .titlee {
+  margin-bottom: 30px;
   margin-left: 14px;
 }
 

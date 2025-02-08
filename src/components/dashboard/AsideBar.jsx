@@ -6,18 +6,14 @@ export const AsideBar = ({ activeLink }) => {
   return (
     <>
       <aside>
-        <div className="toggle">
-          <div className="logo">
-            <h2 className="titlee">
-              Build<span className="danger">Mart</span>
-            </h2>
-          </div>
-          <div className="close close-btn">
-            <span className="material-icons-sharp">close</span>
-          </div>
-        </div>
-
         <div className="sidebar">
+          <div className="toggle">
+            <div className="logo">
+              <h2 className="titlee">
+                Build<span className="danger">Mart</span>
+              </h2>
+            </div>
+          </div>
           <NavLink to={"/dashboard"}>
             <OptionsAsideBar
               className={activeLink === "dashboard" ? "active" : ""}
