@@ -34,7 +34,7 @@ export const NewProduct = () => {
           <div className="input-group2">
             <NavLink to={"/productos"}>
               <button type="submit" className="button btn-cancel">
-                <a href="./Usuarios.html">Cancelar</a>
+                Cancelar
               </button>
             </NavLink>
           </div>

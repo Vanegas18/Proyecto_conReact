@@ -1,10 +1,14 @@
+import { NavLink } from "react-router";
 import { useFetch } from "../../hooks/useFetch";
+import { useChangeState } from "../../hooks/useChangeState";
 
 export const TableProducts = () => {
   const { data } = useFetch([
     "https://apiproyecto-react.onrender.com/productos",
     "https://apiproyecto-react.onrender.com/categorias",
   ]);
+
+  const changeState = useChangeState(null);
 
   if (!data) return <div></div>;
 
@@ -50,12 +54,16 @@ export const TableProducts = () => {
               </td>
               <td>{product.estado}</td>
               <td>
-                <button style={{ cursor: "pointer" }}>
-                  <i className="fa-solid fa-pen-to-square"></i>
-                </button>
+                <NavLink to={"/editProduct"}>
+                  <button style={{ cursor: "pointer" }}>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </NavLink>
               </td>
               <td>
-                <button style={{ cursor: "pointer" }}>
+                <button
+                  onClick={() => changeState(product.estado)}
+                  style={{ cursor: "pointer" }}>
                   <i className="fa-solid fa-power-off"></i>
                 </button>
               </td>

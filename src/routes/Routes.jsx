@@ -9,6 +9,9 @@ import {
   Categories,
   Dashboard,
   Devs,
+  Edit,
+  EditCategory,
+  EditProduct,
   Footer,
   ForgotPassword,
   Header,
@@ -38,7 +41,10 @@ export const AppRoutes = () => {
         location.pathname !== "/categoriasProductos" &&
         location.pathname !== "/newUser" &&
         location.pathname !== "/newProduct" &&
-        location.pathname !== "/newCategory" && <NavBar />}
+        location.pathname !== "/newCategory" &&
+        location.pathname !== "/editUser" &&
+        location.pathname !== "/editProduct" &&
+        location.pathname !== "/editCategory" && <NavBar />}
 
       <Switch>
         <Route
@@ -62,8 +68,11 @@ export const AppRoutes = () => {
         <Route path="/productos" element={<Products />} />
         <Route path="/categoriasProductos" element={<Categories />} />
         <Route path="/newUser" element={<NewUser />} />
+        <Route path="/editUser" element={<Edit />} />
         <Route path="/newProduct" element={<NewProduct />} />
+        <Route path="/editProduct" element={<EditProduct />} />
         <Route path="/newCategory" element={<NewCategory />} />
+        <Route path="/editCategory" element={<EditCategory />} />
       </Switch>
     </>
   );

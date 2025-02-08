@@ -1,7 +1,11 @@
+import { NavLink } from "react-router";
 import { useFetch } from "../../hooks/useFetch";
+import { useChangeState } from "../../hooks/useChangeState";
 
 export const TableUsers = () => {
   const { data } = useFetch("https://apiproyecto-react.onrender.com/usuarios");
+
+  const changeState = useChangeState(null);
 
   const transPassword = (password) => {
     return "********";
@@ -35,34 +39,21 @@ export const TableUsers = () => {
               <td>{user.rol}</td>
               <td>{user.estado}</td>
               <td>
-                <button style={{ cursor: "pointer" }}>
-                  <i className="fa-solid fa-pen-to-square"></i>
-                </button>
+                <NavLink to={"/editUser"}>
+                  <button style={{ cursor: "pointer" }}>
+                    <i className="fa-solid fa-pen-to-square"></i>
+                  </button>
+                </NavLink>
               </td>
               <td>
-                <button style={{ cursor: "pointer" }}>
+                <button
+                  onClick={() => changeState(user.estado)}
+                  style={{ cursor: "pointer" }}>
                   <i className="fa-solid fa-power-off"></i>
                 </button>
               </td>
             </tr>
           ))}
-          {/* <tr>
-            <td>1013458886</td>
-            <td>Juan Jose</td>
-            <td>juanjoseevv@gmail.com</td>
-            <td>3006764605</td>
-            <td>*******</td>
-            <td>Gerente</td>
-            <td>Activo</td>
-            <td>
-              <i className="fa-solid fa-pen-to-square"></i>
-            </td>
-            <td>
-              <button style={{ cursor: "pointer" }}>
-                <i className="fa-solid fa-power-off"></i>
-              </button>
-            </td>
-          </tr> */}
         </tbody>
       </table>
     </>
