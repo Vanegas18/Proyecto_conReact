@@ -30,21 +30,27 @@ import {
 
 export const AppRoutes = () => {
   const location = useLocation();
+  const hideNavBarPaths = [
+    "/login",
+    "/register",
+    "/forgotPassword",
+    "/dashboard",
+    "/usuarios",
+    "/productos",
+    "/categoriasProductos",
+    "/newUser",
+    "/newProduct",
+    "/newCategory",
+    "/editUser",
+    "/editProduct",
+  ];
+
+  const shouldHideNavBar =
+    hideNavBarPaths.includes(location.pathname) ||
+    /^\/editCategory\/\d+$/.test(location.pathname);
   return (
     <>
-      {location.pathname !== "/login" &&
-        location.pathname !== "/register" &&
-        location.pathname !== "/forgotPassword" &&
-        location.pathname !== "/dashboard" &&
-        location.pathname !== "/usuarios" &&
-        location.pathname !== "/productos" &&
-        location.pathname !== "/categoriasProductos" &&
-        location.pathname !== "/newUser" &&
-        location.pathname !== "/newProduct" &&
-        location.pathname !== "/newCategory" &&
-        location.pathname !== "/editUser" &&
-        location.pathname !== "/editProduct" &&
-        location.pathname !== "/editCategory" && <NavBar />}
+      {!shouldHideNavBar && <NavBar />}
 
       <Switch>
         <Route
@@ -72,7 +78,7 @@ export const AppRoutes = () => {
         <Route path="/newProduct" element={<NewProduct />} />
         <Route path="/editProduct" element={<EditProduct />} />
         <Route path="/newCategory" element={<NewCategory />} />
-        <Route path="/editCategory" element={<EditCategory />} />
+        <Route path="/editCategory/:categoryId" element={<EditCategory />} />
       </Switch>
     </>
   );
