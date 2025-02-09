@@ -1,6 +1,28 @@
+import { useFetch } from "../../hooks/useFetch";
 import { AnalysesParts, Pagination, Search, TableCategories } from "../index";
 
 export const MainCategories = () => {
+  const { data: categories } = useFetch(
+    "https://apiproyecto-react.onrender.com/categorias"
+  );
+
+  const countAllCategories = () => {
+    return categories ? categories.length : 0;
+  };
+
+  const countByState = (state) => {
+    return categories
+      ? categories.filter((category) => category.estado === state).length
+      : 0;
+  };
+
+  const calculatePercentage = (count, total) => {
+    return total > 0 ? ((count / total) * 100).toFixed(2) + "%" : "0%";
+  };
+
+  const totalCategories = countAllCategories();
+  const activeCategoriesCount = countByState("Activo");
+  const inactiveCategoriesCount = countByState("Inactivo");
   return (
     <>
       <main>
@@ -8,21 +30,27 @@ export const MainCategories = () => {
         <div className="analyse">
           <AnalysesParts
             types={"sales"}
-            title={"Categorías disponibles"}
-            number={"20"}
-            percentage={"+81%"}
+            title={"Categorías totales"}
+            number={totalCategories}
+            percentage={calculatePercentage(totalCategories, totalCategories)}
           />
           <AnalysesParts
             types={"visits"}
-            title={"Categorías vetados"}
-            number={"15"}
-            percentage={"-28%"}
+            title={"Categorías activas"}
+            number={countByState("Activo")}
+            percentage={calculatePercentage(
+              activeCategoriesCount,
+              totalCategories
+            )}
           />
           <AnalysesParts
             types={"searches"}
-            title={"Categorías en desarrollo"}
-            number={"4"}
-            percentage={"+21%"}
+            title={"Categorías inactivas"}
+            number={countByState("Inactivo")}
+            percentage={calculatePercentage(
+              inactiveCategoriesCount,
+              totalCategories
+            )}
           />
         </div>
         <div className="recent-orders">

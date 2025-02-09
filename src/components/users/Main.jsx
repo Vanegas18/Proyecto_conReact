@@ -33,13 +33,13 @@ export const MainUsers = () => {
           <AnalysesParts
             types={"visits"}
             title={"Administradores"}
-            number={countByRole("Administradores")}
+            number={countByRole("Administrador")}
             percentage={calculatePercentage(administradoresCount, totalUsers)}
           />
           <AnalysesParts
             types={"searches"}
             title={"Gerentes"}
-            number={countByRole("Gerentes")}
+            number={countByRole("Gerente")}
             percentage={calculatePercentage(gerentesCount, totalUsers)}
           />
         </div>
